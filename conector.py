@@ -12,7 +12,7 @@ def create_connection():
             user=os.getenv("DB_USER"),
             password=os.getenv("DB_PASSWORD"),
             database=os.getenv("DB_DATABASE"),
-            unix_socket=os.getenv("DB_SOCKET")
+            #unix_socket=os.getenv("DB_SOCKET")
         )
         if connection.is_connected():
             print(f" Conexión exitosa a la base de datos {os.getenv('DB_DATABASE')}")
