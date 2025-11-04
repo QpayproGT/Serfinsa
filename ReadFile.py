@@ -17,7 +17,7 @@ def buscar_y_leer_excel():
 
     if not files_found:
         print(f"No se encontró ningún archivo Excel con el patrón 'Serfinsa*.xlsx' dentro de {base_path}/")
-        return None
+        return None, None, base_path
 
     files_found.sort(key=os.path.getmtime, reverse=True)
     excel_file = files_found[0]
@@ -28,8 +28,8 @@ def buscar_y_leer_excel():
         df = pd.read_excel(excel_file, engine="openpyxl")
         print(f"Archivo leído correctamente ({len(df)} filas, {len(df.columns)} columnas).")
         print(df.head())  # muestra solo primeras filas
-        return df
+        return df, excel_file, base_path
 
     except Exception as e:
         print(f"Error al leer el archivo Excel: {e}")
-        return None
+        return None, None, base_path

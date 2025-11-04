@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68171cdb-ba14-4cf7-aaad-28ff4e0ce859" name="Changes" comment="" />
+    <list default="true" id="68171cdb-ba14-4cf7-aaad-28ff4e0ce859" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BuscarTransaccion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReadFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReadFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/conector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/serfinsa/Serfinsa  XXXXX_XXXX Trans_19MAY2025_000paypro.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/serfinsa/Serfinsa  XXXXX_XXXX Trans_19MAY2025_000paypro.xlsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

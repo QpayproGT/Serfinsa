@@ -1,0 +1,77 @@
+2025-10-21 16:25:09 - INFO - ============================================================
+2025-10-21 16:25:09 - INFO - 🔍 INICIANDO BÚSQUEDA DE TRANSACCIONES FALTANTES
+2025-10-21 16:25:09 - INFO - 📝 Archivo de log: /Users/marlonruiz/PycharmProjects/Serfinsa/logs/transacciones_faltantes.log
+2025-10-21 16:25:09 - INFO - ==================================================
+2025-10-21 16:25:09 - INFO - 🔍 Buscando transacciones con payment_method_id = 10...
+2025-10-21 16:25:10 - ERROR - ❌ Error en la búsqueda de transacciones
+2025-10-21 16:25:10 - INFO - ✅ Búsqueda de transacciones faltantes completada
+2025-10-21 16:25:10 - INFO - ==================================================
+2025-10-21 16:25:10 - INFO - 🏁 PROCESAMIENTO COMPLETO FINALIZADO
+2025-10-21 16:25:10 - INFO - ============================================================
+2025-10-21 16:25:46 - INFO - ============================================================
+2025-10-21 16:25:46 - INFO - 🔍 INICIANDO BÚSQUEDA DE TRANSACCIONES FALTANTES
+2025-10-21 16:25:46 - INFO - 📝 Archivo de log: /Users/marlonruiz/PycharmProjects/Serfinsa/logs/transacciones_faltantes.log
+2025-10-21 16:25:46 - INFO - ==================================================
+2025-10-21 16:25:46 - INFO - 🔍 Buscando transacciones con payment_method_id = 10...
+2025-10-21 16:25:46 - ERROR - ❌ Error en la búsqueda de transacciones
+2025-10-21 16:25:46 - INFO - ✅ Búsqueda de transacciones faltantes completada
+2025-10-21 16:25:46 - INFO - ==================================================
+2025-10-21 16:25:46 - INFO - 🏁 PROCESAMIENTO COMPLETO FINALIZADO
+2025-10-21 16:25:46 - INFO - ============================================================
+2025-10-21 16:26:31 - INFO - ============================================================
+2025-10-21 16:26:31 - INFO - 🔍 INICIANDO BÚSQUEDA DE TRANSACCIONES FALTANTES
+2025-10-21 16:26:31 - INFO - 📝 Archivo de log: /Users/marlonruiz/PycharmProjects/Serfinsa/logs/transacciones_faltantes.log
+2025-10-21 16:26:31 - INFO - ==================================================
+2025-10-21 16:26:31 - INFO - 🔍 Buscando transacciones con payment_method_id = 10...
+2025-10-21 16:26:31 - INFO - 🔌 Conexión a base de datos cerrada
+2025-10-21 16:26:31 - INFO - 📊 Generando reporte Excel...
+2025-10-21 16:26:31 - INFO - 📧 Enviando reporte por email...
+2025-10-21 16:26:32 - INFO - ✅ Email de reporte enviado exitosamente
+2025-10-21 16:26:32 - INFO - ==================================================
+2025-10-21 16:26:32 - INFO - 📊 RESUMEN FINAL:
+2025-10-21 16:26:32 - INFO - ✅ Transacciones encontradas: 114
+2025-10-21 16:26:32 - INFO - ⏱️ Tiempo de procesamiento: 1.14 segundos
+2025-10-21 16:26:32 - INFO - 📄 Archivo de reporte: logs/transacciones_faltantes_20251021_162631.xlsx
+2025-10-21 16:26:32 - INFO - ============================================================
+2025-10-21 16:26:32 - INFO - ✅ Búsqueda de transacciones faltantes completada
+2025-10-21 16:26:32 - INFO - ==================================================
+2025-10-21 16:26:32 - INFO - 🏁 PROCESAMIENTO COMPLETO FINALIZADO
+2025-10-21 16:26:32 - INFO - ============================================================
+2025-10-21 16:46:58 - INFO - ============================================================
+2025-10-21 16:46:58 - INFO - 🔍 INICIANDO BÚSQUEDA DE TRANSACCIONES FALTANTES
+2025-10-21 16:46:58 - INFO - 📝 Archivo de log: /Users/marlonruiz/PycharmProjects/Serfinsa/logs/transacciones_faltantes.log
+2025-10-21 16:46:58 - INFO - ==================================================
+2025-10-21 16:46:58 - INFO - 🔍 Buscando transacciones con payment_method_id = 10...
+2025-10-21 16:46:58 - INFO - 🔌 Conexión a base de datos cerrada
+2025-10-21 16:46:58 - INFO - 📊 Generando reporte Excel...
+2025-10-21 16:46:58 - INFO - 📧 Enviando reporte por email...
+2025-10-21 16:46:59 - INFO - ✅ Email de reporte enviado exitosamente
+2025-10-21 16:46:59 - INFO - ==================================================
+2025-10-21 16:46:59 - INFO - 📊 RESUMEN FINAL:
+2025-10-21 16:46:59 - INFO - ✅ Transacciones encontradas: 114
+2025-10-21 16:46:59 - INFO - ⏱️ Tiempo de procesamiento: 1.01 segundos
+2025-10-21 16:46:59 - INFO - 📄 Archivo de reporte: logs/transacciones_faltantes_20251021_164658.xlsx
+2025-10-21 16:46:59 - INFO - ============================================================
+2025-10-21 16:46:59 - INFO - ✅ Búsqueda de transacciones faltantes completada
+2025-10-21 16:46:59 - INFO - ==================================================
+2025-10-21 16:46:59 - INFO - 🏁 PROCESAMIENTO COMPLETO FINALIZADO
+2025-10-21 16:46:59 - INFO - ============================================================
+2025-10-21 16:53:45 - INFO - ============================================================
+2025-10-21 16:53:45 - INFO - 🔍 INICIANDO BÚSQUEDA DE TRANSACCIONES FALTANTES
+2025-10-21 16:53:45 - INFO - 📝 Archivo de log: /Users/marlonruiz/PycharmProjects/Serfinsa/logs/transacciones_faltantes.log
+2025-10-21 16:53:45 - INFO - ==================================================
+2025-10-21 16:53:45 - INFO - 🔍 Buscando transacciones con payment_method_id = 10...
+2025-10-21 16:53:45 - INFO - 🔌 Conexión a base de datos cerrada
+2025-10-21 16:53:45 - INFO - 📊 Generando reporte Excel...
+2025-10-21 16:53:45 - INFO - 📧 Enviando reporte por email...
+2025-10-21 16:53:46 - INFO - ✅ Email de reporte enviado exitosamente
+2025-10-21 16:53:46 - INFO - ==================================================
+2025-10-21 16:53:46 - INFO - 📊 RESUMEN FINAL:
+2025-10-21 16:53:46 - INFO - ✅ Transacciones encontradas: 114
+2025-10-21 16:53:46 - INFO - ⏱️ Tiempo de procesamiento: 1.02 segundos
+2025-10-21 16:53:46 - INFO - 📄 Archivo de reporte: logs/transacciones_faltantes_20251021_165345.xlsx
+2025-10-21 16:53:46 - INFO - ============================================================
+2025-10-21 16:53:46 - INFO - ✅ Búsqueda de transacciones faltantes completada
+2025-10-21 16:53:46 - INFO - ==================================================
+2025-10-21 16:53:46 - INFO - 🏁 PROCESAMIENTO COMPLETO FINALIZADO
+2025-10-21 16:53:46 - INFO - ============================================================
