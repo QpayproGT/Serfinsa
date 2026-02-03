@@ -40,10 +40,11 @@ def verificar_y_agregar_columna_lote_id(cursor, conn, logger):
         return False
 
 
-def obtener_o_crear_lote_sv_padre(cursor, conn, fecha_lote, logger):
+def obtener_o_crear_lote_sv_padre(cursor, conn, fecha_lote, business_id, logger):
     """
-    Obtiene o crea un registro en Lote_sv (tabla padre) para la fecha especificada
-    Retorna el id del lote padre
+    Obtiene o crea un registro en Lote_sv (tabla padre) para la fecha y business_id especificados.
+    Retorna el id del lote padre. Si la tabla tiene columna business_id (NOT NULL), se envía
+    para cumplir con el esquema y evitar error 1364.
     """
     try:
         # Primero verificar si existe la tabla Lote_sv
@@ -58,11 +59,12 @@ def obtener_o_crear_lote_sv_padre(cursor, conn, fecha_lote, logger):
         
         if not table_exists:
             logger.warning("⚠️ La tabla Lote_sv no existe. Se creará automáticamente.")
-            # Crear tabla Lote_sv básica si no existe
+            # Crear tabla Lote_sv con business_id para coincidir con esquema de producción
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS `Lote_sv` (
                     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                     `fecha_lote` DATE NOT NULL,
+                    `business_id` VARCHAR(100) NOT NULL,
                     `total_comercios` INT NOT NULL DEFAULT 0,
                     `total_transacciones` INT NOT NULL DEFAULT 0,
                     `total_monto_deposito` DECIMAL(15,2) DEFAULT 0,
@@ -71,33 +73,52 @@ def obtener_o_crear_lote_sv_padre(cursor, conn, fecha_lote, logger):
                     `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                     PRIMARY KEY (`id`),
                     INDEX `idx_fecha_lote` (`fecha_lote`),
-                    UNIQUE KEY `unique_fecha_lote` (`fecha_lote`)
+                    INDEX `idx_business_id` (`business_id`),
+                    UNIQUE KEY `unique_fecha_lote_business` (`fecha_lote`, `business_id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
             """)
             conn.commit()
             logger.info("✅ Tabla Lote_sv creada")
         
-        # Buscar si ya existe un lote para esta fecha
+        # Verificar si la tabla tiene columna business_id (esquema de producción)
         cursor.execute("""
-            SELECT id FROM Lote_sv WHERE fecha_lote = %s LIMIT 1
-        """, (fecha_lote,))
-        
-        lote_existente = cursor.fetchone()
-        
-        if lote_existente:
-            logger.info(f"ℹ️ Lote_sv padre ya existe para fecha {fecha_lote} (ID: {lote_existente['id']})")
-            return lote_existente['id']
+            SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
+            WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'Lote_sv' AND COLUMN_NAME = 'business_id'
+        """)
+        tiene_business_id = cursor.fetchone() is not None
+
+        if tiene_business_id:
+            # Esquema con business_id: un lote padre por (fecha, business_id)
+            cursor.execute("""
+                SELECT id FROM Lote_sv WHERE fecha_lote = %s AND business_id = %s LIMIT 1
+            """, (fecha_lote, business_id))
+            lote_existente = cursor.fetchone()
+            if lote_existente:
+                logger.info(f"ℹ️ Lote_sv padre ya existe para fecha {fecha_lote} y business_id {business_id} (ID: {lote_existente['id']})")
+                return lote_existente['id']
+            cursor.execute("""
+                INSERT INTO Lote_sv (fecha_lote, business_id, estado)
+                VALUES (%s, %s, 'pendiente')
+            """, (fecha_lote, business_id))
         else:
-            # Crear nuevo lote padre
+            # Esquema antiguo sin business_id: un lote padre por fecha (comportamiento legacy)
+            cursor.execute("""
+                SELECT id FROM Lote_sv WHERE fecha_lote = %s LIMIT 1
+            """, (fecha_lote,))
+            lote_existente = cursor.fetchone()
+            if lote_existente:
+                logger.info(f"ℹ️ Lote_sv padre ya existe para fecha {fecha_lote} (ID: {lote_existente['id']})")
+                return lote_existente['id']
             cursor.execute("""
                 INSERT INTO Lote_sv (fecha_lote, estado)
                 VALUES (%s, 'pendiente')
             """, (fecha_lote,))
-            conn.commit()
-            lote_id = cursor.lastrowid
-            logger.info(f"✅ Lote_sv padre creado para fecha {fecha_lote} (ID: {lote_id})")
-            return lote_id
-            
+
+        conn.commit()
+        lote_id = cursor.lastrowid
+        logger.info(f"✅ Lote_sv padre creado para fecha {fecha_lote}" + (f" y business_id {business_id}" if tiene_business_id else "") + f" (ID: {lote_id})")
+        return lote_id
+
     except Exception as e:
         logger.error(f"❌ Error obteniendo/creando Lote_sv padre: {e}")
         return None
@@ -172,11 +193,11 @@ def crear_lotes_por_business_id(cursor, conn, logger):
             elif isinstance(fecha_lote, datetime):
                 fecha_lote = fecha_lote.date()
             
-            # Obtener o crear lote padre
-            lote_sv_id = obtener_o_crear_lote_sv_padre(cursor, conn, fecha_lote, logger)
+            # Obtener o crear lote padre (con business_id para cumplir NOT NULL en Lote_sv)
+            lote_sv_id = obtener_o_crear_lote_sv_padre(cursor, conn, fecha_lote, business_id, logger)
             
             if not lote_sv_id:
-                logger.error(f"❌ No se pudo obtener/crear Lote_sv padre para fecha {fecha_lote}")
+                logger.error(f"❌ No se pudo obtener/crear Lote_sv padre para fecha {fecha_lote} y business_id {business_id}")
                 continue
             
             # Verificar si ya existe un lote para este business_id y fecha
