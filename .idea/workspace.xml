@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68171cdb-ba14-4cf7-aaad-28ff4e0ce859" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BuscarTransaccion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReadFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conector.py" beforeDir="false" afterPath="$PROJECT_DIR$/conector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/serfinsa/Serfinsa  XXXXX_XXXX Trans_19MAY2025_000paypro.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/serfinsa/Serfinsa  XXXXX_XXXX Trans_19MAY2025_000paypro.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +22,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="34Nq8WeAIdhDsoK3YASAXvnR9sf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,6 +36,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/marlonruiz/PycharmProjects/Serfinsa/data/serfinsa"
   }

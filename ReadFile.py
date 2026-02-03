@@ -28,6 +28,13 @@ def buscar_y_leer_excel():
         df = pd.read_excel(excel_file, engine="openpyxl")
         print(f"Archivo leído correctamente ({len(df)} filas, {len(df.columns)} columnas).")
         print(df.head())  # muestra solo primeras filas
+        
+        # DEBUG: Mostrar todos los SEQ_NUM tal como vienen del Excel
+        if 'SEQ_NUM' in df.columns:
+            print(f"\n🔍 DEBUG ReadFile - SEQ_NUMs encontrados en Excel (raw):")
+            for idx, seq in enumerate(df['SEQ_NUM']):
+                print(f"   Fila {idx}: SEQ_NUM = {seq} (tipo: {type(seq)}, valor raw: {repr(seq)})")
+        
         return df, excel_file, base_path
 
     except Exception as e:
